@@ -13,6 +13,7 @@ func TestEmptyCellDoesNotChangeWorth(t *testing.T) {
 		t.Fatalf("Expected %d but got %d", currentWorth, changedWorth)
 	}
 }
+
 func TestHotelCellDeductsHundredFiftyFromWorth(t *testing.T) {
 	var cell = src.NewHotelCell()
 	const currentWorth = 500
