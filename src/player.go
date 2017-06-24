@@ -1,15 +1,21 @@
 package src
 
-import "math/rand"
+import (
+	"math/rand"
+)
 
 const MaxNumberOnDice = 6
 
 type Player struct {
 	position int
+	worth int
 }
 
-func NewPlayer(position int) Player {
-	return Player{position: position}
+func NewPlayer(position int, worth int) Player {
+	return Player {
+		position: position,
+		worth: worth,
+		}
 }
 
 func (player Player) Throw() int{
@@ -22,4 +28,12 @@ func(player Player) Position() int {
 
 func(player *Player) MoveTo(position int) {
 	player.position = position
+}
+func(player *Player) ChangeWorth(cell Cell) {
+	player.worth = player.worth + cell.ChangeWorthBy()
+}
+
+//TODO: this method should not be public
+func(player *Player) Worth() int {
+	return player.worth
 }

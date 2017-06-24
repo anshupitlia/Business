@@ -6,7 +6,7 @@ const (
 
 )
 type Cell interface {
-   ChangeWorth(int) int
+   ChangeWorthBy() int
 }
 
 type EmptyCell struct {
@@ -30,14 +30,14 @@ func NewJailCell() JailCell {
 	return JailCell{}
 }
 
-func(emptyCell EmptyCell) ChangeWorth(currentWorth int) int{
-	return currentWorth
+func(emptyCell EmptyCell) ChangeWorthBy() int{
+	return 0
 }
 
-func(hotelCell HotelCell) ChangeWorth(currentWorth int) int{
-	return currentWorth - HotelPrice
+func(hotelCell HotelCell) ChangeWorthBy() int{
+	return  - HotelPrice
 }
 
-func(jailCell JailCell) ChangeWorth(currentWorth int) int{
-	return currentWorth - JailPenalty
+func(jailCell JailCell) ChangeWorthBy() int{
+	return  - JailPenalty
 }

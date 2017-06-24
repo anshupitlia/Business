@@ -2,3 +2,5 @@ Player throws dice
 Players asks Board, given a position that I'm on, and this being the increment, find next cell for me
 On receiving the cell, player asks Cell how to change its (players) worth.
 
+
+//TODO: include add and commit in checkin dance

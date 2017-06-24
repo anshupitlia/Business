@@ -7,29 +7,26 @@ import (
 
 func TestEmptyCellDoesNotChangeWorth(t *testing.T) {
 	var cell = src.NewEmptyCell()
-	const currentWorth = 500
-	changedWorth := cell.ChangeWorth(currentWorth)
-	if changedWorth != currentWorth {
-		t.Fatalf("Expected %d but got %d", currentWorth, changedWorth)
+	changeWorthBy := cell.ChangeWorthBy()
+	if changeWorthBy != 0 {
+		t.Fatalf("Expected 0 but got %d", changeWorthBy)
 	}
 }
 
 func TestHotelCellDeductsHundredFiftyFromWorth(t *testing.T) {
 	var cell = src.NewHotelCell()
-	const currentWorth = 500
-	const expectedWorth = 350
-	changedWorth := cell.ChangeWorth(currentWorth)
-	if changedWorth != expectedWorth {
-		t.Fatalf("Expected %d but got %d", expectedWorth, changedWorth)
+	const expectedWorth = src.HotelPrice
+	changeWorthBy := cell.ChangeWorthBy()
+	if changeWorthBy != - expectedWorth {
+		t.Fatalf("Expected %d but got %d", - expectedWorth, changeWorthBy)
 	}
 }
 
 func TestJailCellDeductsTwoHundredFromWorth(t *testing.T) {
 	var cell = src.NewJailCell()
-	const currentWorth = 500
-	const expectedWorth = 300
-	changedWorth := cell.ChangeWorth(currentWorth)
-	if changedWorth != expectedWorth {
-		t.Fatalf("Expected %d but got %d", expectedWorth, changedWorth)
+	const expectedWorth = src.JailPenalty
+	changeWorthBy := cell.ChangeWorthBy()
+	if changeWorthBy != - expectedWorth {
+		t.Fatalf("Expected %d but got %d", - expectedWorth, changeWorthBy)
 	}
 }
