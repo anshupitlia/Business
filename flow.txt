@@ -1,6 +1,7 @@
 Player throws dice
-Players asks Board, given a position that I'm on, and this being the increment, find next cell for me
-On receiving the cell, player asks Cell how to change its (players) worth.
+Players asks Board, given a position that I'm on, and this being the increment, find next cell for me (player cant ask board)
+game asks board, given a position and this being the increment find next cell and position (todo: position could be made a field in cell)
+On receiving the cell and position, game asks player to change its worth and position, player in turn asks Cell what is the change factor.
 
 
 //TODO: include add and commit in checkin dance
