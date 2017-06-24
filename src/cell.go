@@ -6,7 +6,7 @@ const (
 
 )
 type Cell interface {
-   changeWorth(int) int
+   ChangeWorth(int) int
 }
 
 type EmptyCell struct {
