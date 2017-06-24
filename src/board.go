@@ -9,6 +9,6 @@ func NewBoard(cells []Cell) Board{
 }
 
 func (board Board) Move(currentPosition, increment int) Cell {
-	newPosition := (currentPosition + increment)
+	newPosition := (currentPosition + increment) % len(board.cells)
 	return board.cells[newPosition]
 }

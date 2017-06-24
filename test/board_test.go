@@ -16,3 +16,15 @@ func TestBoardShouldFindNextCell(t *testing.T) {
 		t.Fatalf("Expected %+v but got %+v", cell2, cell)
 	}
 }
+
+func TestBoardShouldFindNextCellAsHomeCellAfterLastCell(t *testing.T) {
+	cell0 := src.NewEmptyCell()
+	cell1 := src.NewJailCell()
+	cell2 := src.NewHotelCell()
+	var cells = []src.Cell{cell0, cell1, cell2}
+	var board = src.NewBoard(cells)
+	cell := board.Move(2, 1)
+	if (cell != cell0) {
+		t.Fatalf("Expected %+v but got %+v", cell0, cell)
+	}
+}
