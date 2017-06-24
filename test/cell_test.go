@@ -14,19 +14,17 @@ func TestEmptyCellDoesNotChangeWorth(t *testing.T) {
 }
 
 func TestHotelCellDeductsHundredFiftyFromWorth(t *testing.T) {
-	var cell = src.NewHotelCell()
-	const expectedWorth = src.HotelPrice
+	var cell = src.NewHotelCell(150)
 	changeWorthBy := cell.ChangeWorthBy()
-	if changeWorthBy != - expectedWorth {
-		t.Fatalf("Expected %d but got %d", - expectedWorth, changeWorthBy)
+	if changeWorthBy != -150 {
+		t.Fatalf("Expected -150 but got %d", changeWorthBy)
 	}
 }
 
 func TestJailCellDeductsTwoHundredFromWorth(t *testing.T) {
-	var cell = src.NewJailCell()
-	const expectedWorth = src.JailPenalty
+	var cell = src.NewJailCell(200)
 	changeWorthBy := cell.ChangeWorthBy()
-	if changeWorthBy != - expectedWorth {
-		t.Fatalf("Expected %d but got %d", - expectedWorth, changeWorthBy)
+	if changeWorthBy != -200 {
+		t.Fatalf("Expected -200 but got %d", changeWorthBy)
 	}
 }

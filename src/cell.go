@@ -1,10 +1,5 @@
 package src
 
-const (
-	JailPenalty = 200
-	HotelPrice = 150
-
-)
 type Cell interface {
    ChangeWorthBy() int
 }
@@ -13,21 +8,23 @@ type EmptyCell struct {
 }
 
 type HotelCell struct {
+	price int
 }
 
 type JailCell struct {
+	penalty int
 }
 
 func NewEmptyCell() EmptyCell{
 	return EmptyCell{}
 }
 
-func NewHotelCell() HotelCell {
-	return HotelCell{}
+func NewHotelCell(price int) HotelCell {
+	return HotelCell{price: price}
 }
 
-func NewJailCell() JailCell {
-	return JailCell{}
+func NewJailCell(penalty int) JailCell {
+	return JailCell{penalty: penalty}
 }
 
 func(emptyCell EmptyCell) ChangeWorthBy() int{
@@ -35,9 +32,9 @@ func(emptyCell EmptyCell) ChangeWorthBy() int{
 }
 
 func(hotelCell HotelCell) ChangeWorthBy() int{
-	return  - HotelPrice
+	return  - hotelCell.price
 }
 
 func(jailCell JailCell) ChangeWorthBy() int{
-	return  - JailPenalty
+	return  - jailCell.penalty
 }

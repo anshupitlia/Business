@@ -7,8 +7,8 @@ import (
 
 func TestBoardShouldFindNextCell(t *testing.T) {
 	cell0 := src.NewEmptyCell()
-	cell1 := src.NewJailCell()
-	cell2 := src.NewHotelCell()
+	cell1 := src.NewJailCell(200)
+	cell2 := src.NewHotelCell(150)
 	var cells = []src.Cell{cell0, cell1, cell2}
 	var board = src.NewBoard(cells)
 	cell := board.Move(0, 2)
@@ -19,8 +19,8 @@ func TestBoardShouldFindNextCell(t *testing.T) {
 
 func TestBoardShouldFindNextCellAsHomeCellAfterLastCell(t *testing.T) {
 	cell0 := src.NewEmptyCell()
-	cell1 := src.NewJailCell()
-	cell2 := src.NewHotelCell()
+	cell1 := src.NewJailCell(200)
+	cell2 := src.NewHotelCell(150)
 	var cells = []src.Cell{cell0, cell1, cell2}
 	var board = src.NewBoard(cells)
 	cell := board.Move(2, 1)
