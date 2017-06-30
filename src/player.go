@@ -33,6 +33,11 @@ func(player *Player) ChangeWorth(cell Cell) {
 	player.worth = player.worth + cell.ChangeWorthBy()
 }
 
+func(player *Player) Change(cell Cell) {
+	player.worth = player.worth + cell.ChangeWorthBy()
+	player.position = cell.Position()
+}
+
 //TODO: this method should not be public
 func(player *Player) Worth() int {
 	return player.worth

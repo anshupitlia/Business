@@ -34,7 +34,7 @@ func TestAPlayerCanBeMovedToAnotherPosition(t *testing.T) {
 
 func TestAPlayerChangesItsWorthWhenItLandsOnACell(t *testing.T) {
 	var player = src.NewPlayer(0, 500)
-	var someCell = src.NewHotelCell(150)
+	var someCell = src.NewHotelCell(0, 150)
 
 	player.ChangeWorth(someCell)
 	newWorth := player.Worth()
