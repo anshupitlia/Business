@@ -32,14 +32,19 @@ func TestAPlayerCanBeMovedToAnotherPosition(t *testing.T) {
 	}
 }
 
-func TestAPlayerChangesItsWorthWhenItLandsOnACell(t *testing.T) {
+func TestAPlayerChangesItsWorthAndPositionWhenItLandsOnACell(t *testing.T) {
 	var player = src.NewPlayer(0, 500)
-	var someCell = src.NewHotelCell(0, 150)
+	var someCell = src.NewHotelCell(1, 150)
 
-	player.ChangeWorth(someCell)
+	player.Change(someCell)
 	newWorth := player.Worth()
+	newPosition := player.Position()
 
 	if newWorth != 350 {
-		t.Fatalf("expected 5 but got %d", newWorth)
+		t.Fatalf("expected 350 but got %d", newWorth)
+	}
+
+	if newPosition != 1 {
+		t.Fatalf("expected to move to position 1 but got %d", newPosition)
 	}
 }

@@ -29,9 +29,6 @@ func(player Player) Position() int {
 func(player *Player) MoveTo(position int) {
 	player.position = position
 }
-func(player *Player) ChangeWorth(cell Cell) {
-	player.worth = player.worth + cell.ChangeWorthBy()
-}
 
 func(player *Player) Change(cell Cell) {
 	player.worth = player.worth + cell.ChangeWorthBy()
